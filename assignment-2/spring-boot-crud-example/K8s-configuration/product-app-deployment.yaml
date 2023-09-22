@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-app-deployment
+  labels:
+    app: product-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: product-app
+  template:
+    metadata:
+      labels:
+        app: product-app
+    spec:
+      containers:
+        - name: product-app-container
+          image: neeharikasingh/product-app:1.0
+          ports:
+            - containerPort: 9191
+          env:
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: product-app-configmap
+                  key: db-url 
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: product-app-secret
+                  key: db-username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: product-app-secret
+                  key: db-password

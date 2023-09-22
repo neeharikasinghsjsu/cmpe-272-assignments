@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  nginx.conf: |
+    events {}
+    http {
+      log_format my_format '... host: $host, http_host: $http_host ...';
+      access_log /var/log/nginx/access.log my_format;
+  
+      server {
+        listen 80;
+        
+        location /swagger-ui.html {
+          proxy_pass http://product-app-service:9191/swagger-ui.html;
+          proxy_redirect http://product-app-service:9191/ http://$http_host/;
+        }
+        
+        location /products {
+          proxy_pass http://product-app-service:9191/products;
+        }
+        
+        location /addProduct {
+          proxy_pass http://product-app-service:9191/addProduct;
+        }
+
+        location /addProducts {
+          proxy_pass http://product-app-service:9191/addProducts;
+        }
+        
+        location /productById/ {
+            proxy_pass http://product-app-service:9191/productById/;
+        }
+
+        location /product/ {
+            proxy_pass http://product-app-service:9191/product/;
+        }
+
+        location /update {
+            proxy_pass http://product-app-service:9191/update;
+        }
+
+        location /delete/ {
+            proxy_pass http://product-app-service:9191/delete/;
+        }
+        location / {
+          proxy_pass http://product-app-service:9191;
+          proxy_redirect http://product-app-service:9191/ http://$http_host/;
+        }
+      }
+    }
