@@ -1,0 +1,6 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pms-app-configmap
+data:
+  db-url: "jdbc:mysql://host.docker.internal:3306/pms?serverTimezone=UTC"

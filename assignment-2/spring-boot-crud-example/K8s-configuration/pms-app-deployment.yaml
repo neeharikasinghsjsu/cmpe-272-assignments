@@ -1,37 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: product-app-deployment
+  name: pms-deployment
   labels:
-    app: product-app
+    app: pms-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: product-app
+      app: pms-app
   template:
     metadata:
       labels:
-        app: product-app
+        app: pms-app
     spec:
       containers:
-        - name: product-app-container
-          image: neeharikasingh/product-app:1.0
+        - name: pms-app-container
+          image: neeharikasingh/product-management-service:1.0
           ports:
-            - containerPort: 9191
+            - containerPort: 9000
           env:
             - name: DB_URL
               valueFrom:
                 configMapKeyRef:
-                  name: product-app-configmap
+                  name: pms-app-configmap
                   key: db-url 
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: product-app-secret
+                  name: pms-app-secret
                   key: db-username
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: product-app-secret
+                  name: pms-app-secret
                   key: db-password

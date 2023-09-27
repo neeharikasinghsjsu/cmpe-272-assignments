@@ -1,13 +1,13 @@
-package com.javatechie.crud.example;
+package com.expressnest.pms.productsearchservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootCrudExample2Application {
+public class ProductSearchServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootCrudExample2Application.class, args);
+		SpringApplication.run(ProductSearchServiceApplication.class, args);
 	}
 
 }

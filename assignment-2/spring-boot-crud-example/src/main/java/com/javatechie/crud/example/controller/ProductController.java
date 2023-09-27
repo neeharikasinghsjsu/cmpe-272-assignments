@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/pms")
 public class ProductController {
 
     @Autowired
@@ -16,11 +17,6 @@ public class ProductController {
     @PostMapping("/addProduct")
     public Product addProduct(@RequestBody Product product) {
         return service.saveProduct(product);
-    }
-
-    @PostMapping("/addProducts")
-    public List<Product> addProducts(@RequestBody List<Product> products) {
-        return service.saveProducts(products);
     }
 
     @GetMapping("/products")

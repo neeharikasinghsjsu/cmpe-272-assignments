@@ -11,42 +11,33 @@ data:
   
       server {
         listen 80;
-        
-        location /swagger-ui.html {
-          proxy_pass http://product-app-service:9191/swagger-ui.html;
-          proxy_redirect http://product-app-service:9191/ http://$http_host/;
-        }
-        
+
         location /products {
-          proxy_pass http://product-app-service:9191/products;
+          proxy_pass http://pms-app-service:9000/pms/products;
         }
         
         location /addProduct {
-          proxy_pass http://product-app-service:9191/addProduct;
+          proxy_pass http://pms-app-service:9000/pms/addProduct;
         }
 
-        location /addProducts {
-          proxy_pass http://product-app-service:9191/addProducts;
-        }
-        
         location /productById/ {
-            proxy_pass http://product-app-service:9191/productById/;
+            proxy_pass http://pms-app-service:9000/pms/productById/;
         }
 
         location /product/ {
-            proxy_pass http://product-app-service:9191/product/;
+            proxy_pass http://pms-app-service:9000/pms/product/;
         }
 
         location /update {
-            proxy_pass http://product-app-service:9191/update;
+            proxy_pass http://pms-app-service:9000/pms/update;
         }
 
         location /delete/ {
-            proxy_pass http://product-app-service:9191/delete/;
+            proxy_pass http://pms-app-service:9000/pms/delete/;
         }
         location / {
-          proxy_pass http://product-app-service:9191;
-          proxy_redirect http://product-app-service:9191/ http://$http_host/;
+          proxy_pass http://pms-app-service:9000;
+          proxy_redirect http://pms-app-service:9000/ http://$http_host/;
         }
       }
     }

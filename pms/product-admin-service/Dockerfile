@@ -7,5 +7,5 @@ RUN mvn package
 
 FROM eclipse-temurin:17.0.8.1_1-jdk
 WORKDIR /app
-COPY --from=build /app/target/spring-boot-crud-example-1.0.jar /app/spring-boot-crud-example-1.0.jar
-CMD ["java", "-jar", "spring-boot-crud-example-1.0.jar"]
+COPY --from=build /app/target/product-admin-service-1.0.jar /app/product-admin-service-1.0.jar
+CMD ["java", "-jar", "product-admin-service-1.0.jar"]
