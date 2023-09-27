@@ -20,7 +20,7 @@ data:
             proxy_pass http://pss-app-service:8081/pms/productById/;
         }
 
-        location /product/ {
+        location /productByName/ {
             proxy_pass http://pss-app-service:8081/pms/productByName/;
         }
         
@@ -28,11 +28,11 @@ data:
           proxy_pass http://pas-app-service:8080/pms/addProduct;
         }
         
-        location /update {
-            proxy_pass http://pas-app-service:8080/pms/update;
+        location /updateProduct {
+            proxy_pass http://pas-app-service:8080/pms/updateProduct;
         }
 
-        location /delete/ {
+        location /deleteProductById/ {
             proxy_pass http://pas-app-service:8080/pms/delete/;
         }
       }
