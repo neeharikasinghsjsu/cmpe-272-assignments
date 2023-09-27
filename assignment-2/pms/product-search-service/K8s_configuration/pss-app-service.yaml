@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pss-app-service
+spec:
+  selector:
+    app: pss-app
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081

@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pas-app-configmap
+data:
+  db-url: "jdbc:mysql://host.docker.internal:3306/pas?serverTimezone=UTC"
+  rabbitmq_host: "host.docker.internal"
+  rabbitmq_port: 5672

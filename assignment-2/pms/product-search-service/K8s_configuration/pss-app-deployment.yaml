@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pss-deployment
+  labels:
+    app: pss-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pss-app
+  template:
+    metadata:
+      labels:
+        app: pss-app
+    spec:
+      containers:
+        - name: pss-app-container
+          image: neeharikasingh/product-search-service:1.0
+          ports:
+            - containerPort: 8081
+          env:
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: pss-app-configmap
+                  key: db-url 
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: pss-app-secret
+                  key: db-username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pss-app-secret
+                  key: db-password
+            - name: RABBITMQ_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: pss-app-configmap
+                  key: rabbitmq_host 
+            - name: RABBITMQ_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: pss-app-configmap
+                  key: rabbitmq_port
+            - name: RABBITMQ_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: pss-app-secret
+                  key: rabbitmq_username
+            - name: RABBITMQ_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pss-app-secret
+                  key: rabbitmq_password
