@@ -5,4 +5,4 @@ metadata:
 data:
   db-url: "jdbc:mysql://host.docker.internal:3306/pss?serverTimezone=UTC"
   rabbitmq_host: "host.docker.internal"
-  rabbitmq_port: 5672
+  rabbitmq_port: "5672"
