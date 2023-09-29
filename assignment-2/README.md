@@ -21,7 +21,7 @@
    1) [Application screenshots](https://github.com/neeharikasinghsjsu/cmpe272-assignments/blob/main/assignment-2/Documents/Microservices_Application.pdf)
    2) [Docker build screenshots](https://github.com/neeharikasinghsjsu/cmpe272-assignments/blob/main/assignment-2/Documents/Microservices_Docker_Builds.pdf)
    3) [K8s cluster screenshots](https://github.com/neeharikasinghsjsu/cmpe272-assignments/blob/main/assignment-2/Documents/Microservices_K8s_Cluster.pdf)
-   4) [K8s yamls ngins-api-gateway](https://github.com/neeharikasinghsjsu/cmpe272-assignments/tree/main/assignment-2/pms/nginx/K8s_configuration)
+   4) [K8s yamls nginx-api-gateway](https://github.com/neeharikasinghsjsu/cmpe272-assignments/tree/main/assignment-2/pms/nginx/K8s_configuration)
    5) [K8s yamls product-admin-service](https://github.com/neeharikasinghsjsu/cmpe272-assignments/tree/main/assignment-2/pms/product-admin-service/K8s_configuration)
    6) [K8s yamls product-search-service](https://github.com/neeharikasinghsjsu/cmpe272-assignments/tree/main/assignment-2/pms/product-search-service/K8s_configuration)
 
